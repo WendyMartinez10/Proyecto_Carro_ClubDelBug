@@ -9,7 +9,50 @@ package Radio;
  * @author gipsy
  */
 public class Radio {
-    private boolean Encedida;
+    private boolean Encendida;
     private Modo modoActual;
+    private double Frecuencia;
     
-}
+    public void Encendida () {
+    Encendida = true;
+   }
+    public void apagar () {
+        Encendida = false;
+    }
+
+    public boolean isEncendida() {
+        return Encendida;
+    }
+
+    public Modo getModoActual() {
+        return modoActual;
+    }
+
+    public double getFrecuencia() {
+        return Frecuencia;
+    }
+    public void cambiarModo(Modo nuevoModo) {
+        if(Encendida && nuevoModo != modoActual) {
+            modoActual = nuevoModo;
+            Frecuencia =0;
+        }
+    }
+    public void subirEstacion() {
+        if(!Encendida || modoActual == Modo.BLUETOOTH) return;
+        
+        if(modoActual == Modo.AM) {
+            Frecuencia += 10;
+        } else if (modoActual == Modo.FM) {
+            Frecuencia += 0.2;
+        }
+    }
+    public void bajarEstacion() {
+        if(!Encendida || modoActual == Modo.BLUETOOTH) return;
+        
+        if(modoActual == Modo.AM) {
+            Frecuencia -= 10;
+        } else if (modoActual == Modo.FM) {
+            Frecuencia -= 0.2;
+        }
+    }
+    }
