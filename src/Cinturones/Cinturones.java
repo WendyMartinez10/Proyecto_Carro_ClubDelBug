@@ -36,7 +36,7 @@ public class Cinturones {
 
     public void estadoCinturones() {
         cinturones.forEach((persona, estado) -> {
-            
-        }
+           System.out.println(persona + ": " + (estado ? "Colocado" : "No colocado"));
+        });
     }
 }
