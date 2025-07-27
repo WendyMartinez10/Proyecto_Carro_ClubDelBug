@@ -1,0 +1,58 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Kilometraje;
+
+/**
+ *
+ * @author AsusVivobook
+ */
+public class kilometraje {
+    private double totalKm;
+    private int velocidad;
+    private int rpm;
+  
+    public kilometraje(){
+    totalKm = 0.0;
+    velocidad = 0;
+    rpm = 0;
+    }
+  
+    public void actualizarVelocidad(int nuevaVelocidad){
+    velocidad = nuevaVelocidad;
+    rpm = calcularRPM(velocidad);
+    }
+
+    public void recorer(int segundos){
+    double horas = segundos / 3600.0;
+    totalKm += velocidad * horas;
+    }
+
+    private int calcularRPM(int velocidad){
+    if (velocidad == 0) return 0;
+    int marcha = (velocidad / 20) + 1;
+     return (velocidad * 90) + (marcha * 120);
+    }
+
+    public double getTotalKm() {
+        return totalKm;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public int getRpm() {
+        return rpm;
+    }
+
+    @Override
+    public String toString() {
+        return "kilometraje{" + "totalKm=" + totalKm + ", velocidad=" + velocidad + ", km/h | RPM=" + rpm + '}';
+    }
+}
+
+
+
+
