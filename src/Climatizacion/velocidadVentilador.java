@@ -9,8 +9,18 @@ package Climatizacion;
  * @author AsusVivobook
  */
 public enum velocidadVentilador {
-    APAGADO,
-    BAJO,
-    MEDIO,
-    ALTO;
+    APAGADO("Apagado"),
+    BAJO("Bajo"),
+    MEDIO("Medio"),
+    ALTO("Alto");   
+    private final String Estado;
+
+    private velocidadVentilador(String Estado) {
+        this.Estado = Estado;
+    }
+
+    public String getEstado() {
+        return Estado;
+    }
+    
 }
