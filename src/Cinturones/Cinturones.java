@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Cinturones;
-import java.util.HashMap;
-import java.util.Map;
+import Cinturones.Asiento;
 /**
  *
  * @author USER
@@ -12,31 +11,38 @@ import java.util.Map;
 
 
 public class Cinturones {
-
-    private final Map<String, Boolean> cinturones = new HashMap<>();
+  private final boolean[] Abrochados;
 
     public Cinturones() {
-        cinturones.put("Conductor", false);
-        cinturones.put("Pasajero Frontal", false);
-        cinturones.put("Pasajero Trasero Izquierdo", false);
-        cinturones.put("Pasajero Trasero Derecho", false);
+        this.Abrochados = new boolean[Asiento.values().length];
+        
     }
-
-    public void colocarCinturon(String persona) {
-        if (cinturones.containsKey(persona)) {
-            cinturones.put(persona, true);
+    public void Abrochar(Asiento asiento) {
+        Abrochados[asiento.ordinal()] = true;
+    }
+    public void Desabrochar(Asiento asiento) {
+        Abrochados[asiento.ordinal()] = false;
+        
+    }
+    public boolean Colocado(Asiento asiento) {
+        return Abrochados[asiento.ordinal()];
+    }
+    public boolean todosAbrochados() {
+        for (boolean A : Abrochados){
+            if (!A) return false;
         }
+        return true;
     }
-
-    public void quitarCinturon(String persona) {
-        if (cinturones.containsKey(persona)) {
-            cinturones.put(persona, false);
-        }
-    }
-
-    public void estadoCinturones() {
-        cinturones.forEach((persona, estado) -> {
-           System.out.println(persona + ": " + (estado ? "Colocado" : "No colocado"));
-        });
-    }
+    public String[] ObtenerEstado(){
+        Asiento[] asiento = Asiento.values();
+        String[] Estado = new String[asiento.length];
+          for (int i = 0; i < asiento.length; i++) {
+          Estado[i] = asiento[i].getEstado() + ": " + (Abrochados[i] ? "Colocado" : "No colocado");
+          
 }
+    return Estado;
+
+}
+}
+
+  
