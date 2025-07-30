@@ -47,10 +47,6 @@ public class kilometraje {
         return rpm;
     }
 
-    @Override
-    public String toString() {
-        return "kilometraje{" + "totalKm=" + totalKm + ", velocidad=" + velocidad + ", km/h | RPM=" + rpm + '}';
-    }
 }
 
 
