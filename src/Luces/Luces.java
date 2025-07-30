@@ -10,7 +10,7 @@ package Luces;
  */
 
 public class Luces {
-   public enum TipoLuz {APAGADAS, BAJAS, ALTAS}
+
 
     private TipoLuz Delanteras;
     private boolean Intermitentes;
@@ -40,6 +40,9 @@ public class Luces {
     public void LucesPuertas(boolean estado) {
         lucesPuertas = estado;
     }
+    public String getEstadoLuces(){
+        return "Luces Delanteras " + Delanteras.getEstado() +"lucesIntermitentes" + (Intermitentes ? "Activadas" : "Desactivadas")+ "lucesEmergencia"+ (Emergencia ? "Activadas" : "Desactivadas") +  "LucesPuertas " +(lucesPuertas ? "Activadas" : "Apagadas");
+    }
 
     public TipoLuz getDelanteras() {
         return Delanteras;
@@ -52,9 +55,4 @@ public class Luces {
     public boolean isEmergencia() {
         return Emergencia;
     }
-
-    public boolean isLucesPuertas() {
-        return lucesPuertas;
-    }
-    
 }
