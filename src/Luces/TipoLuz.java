@@ -9,8 +9,18 @@ package Luces;
  * @author USER
  */
 public enum TipoLuz {
-   APAGADAS,
-    BAJAS,
-    ALTAS;
- 
+   APAGADAS("Apagadas"),
+    BAJAS("Luces bajas"),
+    ALTAS("Apagadas");
+    
+private final String estado;
+
+public String getEstado() {
+        return estado;
+    }
+
+private TipoLuz(String Estado) {
+        this.estado = Estado;
+    }
+   
 }
