@@ -4,6 +4,8 @@
  */
 package Climatizacion;
 
+import java.util.Locale;
+
 /**
  *
  * @author AsusVivobook
@@ -68,9 +70,8 @@ public class climatizacion {
     public velocidadVentilador getVelocidadVentilador() {
         return velocidadVentilador;
     }
-
-    @Override
-    public String toString() {
-        return "climatizacion{" + "aireAcondicionado=" + aireAcondicionado + ", calefaccion=" + calefaccion + ", temperatura=" + temperatura + ", velocidadVentilador=" + velocidadVentilador + '}';
-    }      
+    public String Estado() {
+        return "    VelocidadVentilador: " + velocidadVentilador.name() +
+               " | " + velocidadVentilador.getEstado();
+                }
 }
