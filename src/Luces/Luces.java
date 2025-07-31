@@ -17,14 +17,34 @@ public class Luces {
     private boolean Emergencia;
     private boolean Puertas;
     private boolean lucesPuertas;
+    private boolean direccionalDerecha;
+    private boolean direccionalIzquierda;
 
     public Luces() {
         this.Delanteras = TipoLuz.APAGADAS;
         this.Intermitentes = false;
         this.Emergencia = false;
         this.Puertas = false;
+        this.direccionalDerecha = false;
+        this.direccionalIzquierda = false;
     }
-
+    
+    public void activarDireccionalDerecha(boolean estado) {
+        if (direccionalDerecha){
+            direccionalDerecha = false;
+        } else {
+            direccionalDerecha = true;
+        }
+    }
+    
+    public void activarDireccionalIzquierda(boolean estado) {
+        if (direccionalIzquierda){
+            direccionalIzquierda = false;
+        } else {
+            direccionalIzquierda = true;
+        }
+    }
+    
     public void LucesDelanteras(TipoLuz tipo) {
         this.Delanteras = tipo;
     }
@@ -39,11 +59,8 @@ public class Luces {
 
     public void LucesPuertas(boolean estado) {
         lucesPuertas = estado;
-    }
-    public String getEstadoLuces(){
-        return "Luces Delanteras " + Delanteras.getEstado() +"lucesIntermitentes" + (Intermitentes ? "Activadas" : "Desactivadas")+ "lucesEmergencia"+ (Emergencia ? "Activadas" : "Desactivadas") +  "LucesPuertas " +(lucesPuertas ? "Activadas" : "Apagadas");
-    }
-
+    }  
+    
     public TipoLuz getDelanteras() {
         return Delanteras;
     }
@@ -54,5 +71,13 @@ public class Luces {
 
     public boolean isEmergencia() {
         return Emergencia;
+    }
+    
+    public boolean isDireccionalDerecha() {
+        return direccionalDerecha;
+    }
+    
+    public boolean isDireccionalIzquierda() {
+        return direccionalIzquierda;
     }
 }
