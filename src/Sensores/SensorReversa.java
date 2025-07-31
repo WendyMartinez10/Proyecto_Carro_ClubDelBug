@@ -10,48 +10,63 @@ package Sensores;
  */
 public class SensorReversa {
 
-    private boolean frenoDeManoActivado;
+ private boolean frenoDeManoActivado;
     private boolean enReversa;
     private boolean obstaculoDetectado;
-
+    private boolean freno; 
     private boolean alarmaActiva;
     private String mensajeAlarma;
+    private String ultimoMensaje;
 
     public SensorReversa() {
         this.frenoDeManoActivado = false;
         this.enReversa = false;
         this.obstaculoDetectado = false;
+        this.freno = false;
         this.alarmaActiva = false;
         this.mensajeAlarma = "Condiciones normales.";
+        this.ultimoMensaje = "";
     }
 
     public void activarFrenoDeMano() {
         frenoDeManoActivado = true;
-        System.out.println("Freno de mano activado.");
+        ultimoMensaje = "Freno de mano activado.";
         verificarAlarma();
     }
 
     public void liberarFrenoDeMano() {
         frenoDeManoActivado = false;
-        System.out.println("Freno de mano liberado.");
+        ultimoMensaje = "Freno de mano liberado.";
         verificarAlarma();
     }
 
     public void iniciarReversa() {
         enReversa = true;
-        System.out.println("Vehículo en reversa.");
+        ultimoMensaje = "Vehículo en reversa.";
         verificarAlarma();
     }
 
     public void detenerReversa() {
         enReversa = false;
-        System.out.println("Vehículo detenido.");
+        ultimoMensaje = "Vehículo detenido.";
         verificarAlarma();
     }
 
     public void detectarObstaculo(boolean estado) {
         obstaculoDetectado = estado;
-        System.out.println(estado ? "Obstáculo detectado detrás del vehículo." : "Sin obstáculos en reversa.");
+        ultimoMensaje = estado ? "Obstáculo detectado detrás del vehículo." : "Sin obstáculos en reversa.";
+        verificarAlarma();
+    }
+
+    public void aplicarFreno() {
+        freno = true;
+        ultimoMensaje = "Freno aplicado.";
+        verificarAlarma();
+    }
+
+    public void liberarFreno() {
+        freno = false;
+        ultimoMensaje = "Freno liberado.";
         verificarAlarma();
     }
 
@@ -89,5 +104,19 @@ public class SensorReversa {
 
     public boolean isEnReversa() {
         return enReversa;
-    }  
+    }
+
+    public boolean isFreno() {
+        return freno;
+    }
+
+    public void setFreno(boolean freno) {
+        this.freno = freno;
+        ultimoMensaje = freno ? "Freno aplicado (setFreno)." : "Freno liberado (setFreno).";
+        verificarAlarma();
+    }
+
+    public String getUltimoMensaje() {
+        return ultimoMensaje;
+    }
 }
