@@ -9,18 +9,25 @@ package Radio;
  * @author gipsy
  */
 public enum Modo {
-    AM(530),
-    FM(88),
-    BLUETOOTH(-1);
+  AM(530, "Modo AM"),
+  FM(88,  "Modo FM"),
+  BLUETOOTH(-1, "Bluetooth conectado");
     private final int Frecuencia;
+    private final String Estado;
 
-    private Modo(int Frecuencia) {
+    private Modo(int Frecuencia, String Estado) {
         this.Frecuencia = Frecuencia;
+        this.Estado = Estado;
     }
 
     public int getFrecuencia() {
         return Frecuencia;
     }
+
+    public String getEstado() {
+        return Estado;
+    }
+
     
     
 }
