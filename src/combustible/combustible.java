@@ -49,7 +49,7 @@ public class combustible {
     
    
     public EstadoDelTanque getEstado() {
-     double porcentaje = (capacidad == 0) ? 0 : (Nivel / capacidad)* 100.0;
+     double porcentaje = (capacidad == 0) ? 0.0 : (Nivel / capacidad)* 100.0;
      return EstadoDelTanque.desdeNivel(porcentaje);
 
 }
