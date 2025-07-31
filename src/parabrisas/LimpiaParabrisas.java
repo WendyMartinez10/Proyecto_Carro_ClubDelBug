@@ -26,5 +26,10 @@ public LimpiaParabrisas() {
     public boolean estaActivo() {
         return velocidadActual != Velocidad.APAGADO;
     }
-  
+     public String Estado() {
+        return "Velocidad: " + velocidadActual.name() +
+               " (" + velocidadActual.getEstado() + ")" +
+               " | Estado: " + (estaActivo() ? "Activado" : "Apagado");
+    }
 }
+
