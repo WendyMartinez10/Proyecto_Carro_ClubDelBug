@@ -9,19 +9,24 @@ package parabrisas;
  * @author USER
  */
 public enum Velocidad {
-APAGADO("Apagado"),
-    LENTO("Lento"),
-    MEDIO("Medio"),
-    RAPIDO("Rápido");
+APAGADO(0,"Apagado"),
+    LENTO(1,"Lento"),
+    MEDIO(2,"Medio"),
+    RAPIDO(3,"Rápido");
+    private final int Nivel;
+    private final String Estado;
 
-    private final String nivel;
+        private Velocidad(int Nivel, String Estado) {
+            this.Nivel = Nivel;
+            this.Estado = Estado;
+        }
 
-     Velocidad(String descripcion) {
-        this.nivel = descripcion;
+    public int getNivel() {
+        return Nivel;
     }
 
-    public String getDescripcion() {
-        return nivel;
+    public String getEstado() {
+        return Estado;
     }
-    
+
 }
