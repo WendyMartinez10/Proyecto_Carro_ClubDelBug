@@ -3,39 +3,58 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Puertas;
-import java.util.HashMap;
-import java.util.Map;
+
 /**
  *
  * @author USER
  */
 
 public class Puertas {
+  
+public  EstadoPuerta puerta1 = EstadoPuerta.ABIERTA;
+public  EstadoPuerta puerta2 = EstadoPuerta.CERRADA;
+public  EstadoPuerta puerta3 = EstadoPuerta.CERRADA;
+public  EstadoPuerta puerta4 = EstadoPuerta.CERRADA;
+
+
+    public boolean abrirPuerta() {
+        return puerta1 == EstadoPuerta.ABIERTA||
+        puerta2 == EstadoPuerta.ABIERTA || 
+        puerta3 == EstadoPuerta.ABIERTA || 
+        puerta4 == EstadoPuerta.ABIERTA;
+        }
     
-    private final Map<String, Boolean> puertas = new HashMap<>();
 
-    public Puertas() {
-        puertas.put("Delantera Izquierda", false);
-        puertas.put("Delantera Derecha", false);
-        puertas.put("Trasera Izquierda", false);
-        puertas.put("Trasera Derecha", false);
-    }
+    public void cerrarPuerta() {
+       puerta1 = EstadoPuerta.CERRADA;
+       puerta2 = EstadoPuerta.CERRADA;
+       puerta3 = EstadoPuerta.CERRADA;
+       puerta4 = EstadoPuerta.CERRADA;
+}
 
-    public void abrirPuerta(String nombre) {
-        if (puertas.containsKey(nombre)) {
-            puertas.put(nombre, true);
+    public String  mostrarPuertasAbiertas() {
+        String Estado = "Puertas abiertas: ";
+        boolean Abiertas = false;
+    
+        if(puerta1 == EstadoPuerta.ABIERTA){
+            Estado += "Puerta1";
+            Abiertas = true;
         }
-    }
-
-    public void cerrarPuerta(String nombre) {
-        if (puertas.containsKey(nombre)) {
-            puertas.put(nombre, false);
+        if (puerta2 == EstadoPuerta.ABIERTA){
+            Estado += "Puerta2";
+            Abiertas = true;
         }
+        if (puerta3 == EstadoPuerta.ABIERTA){
+            Estado += "Puerta3";
+            Abiertas = true;
     }
-
-    public void mostrarPuertasAbiertas() {
-        puertas.forEach((nombre, estado) -> {
-            if (estado) System.out.println("- " + nombre);
-        });
+        if (puerta4 == EstadoPuerta.ABIERTA){
+            Estado += "Puerta1";
+            Abiertas = true;
+    }
+        if (!Abiertas){
+            Estado = "Todas las puertas estan cerradas";
+        }
+        return Estado;
     }
 }
