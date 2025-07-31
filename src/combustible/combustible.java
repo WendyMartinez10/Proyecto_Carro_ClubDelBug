@@ -45,6 +45,8 @@ public class combustible {
        if(Nivel == capacidad) ConsumoTotal = 0.0;
         }
     
+    
+    
    
     public EstadoDelTanque getEstado() {
      double porcentaje = (capacidad == 0) ? 0 : (Nivel / capacidad)* 100.0;
