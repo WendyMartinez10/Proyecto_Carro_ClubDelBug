@@ -11,7 +11,7 @@ package Luces;
 public enum TipoLuz {
    APAGADAS("Apagadas"),
     BAJAS("Luces bajas"),
-    ALTAS("Apagadas");
+    ALTAS("Luces Altas");
     
 private final String estado;
 
