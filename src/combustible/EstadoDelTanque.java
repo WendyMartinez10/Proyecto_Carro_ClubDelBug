@@ -9,10 +9,9 @@ package combustible;
  * @author gipsy
  */
 public enum EstadoDelTanque {
-    VACIO(0, "Tanque vacio"),
-    BAJO(15, "Nivel bajo"),
-    MEDIO(50, "Nivel Medio"),
-    LLENO(100, "Tanque LLeno");
+    VACIO(0, "Tanque totalmente vacio"),
+    BAJO(20, "Nivel de combustible bajo"),
+    INVALIDO (-1, "Cantidad invalida");
     
     private final int porcentajeMinimo;
     private final String DescripcionTanque;
@@ -26,10 +25,12 @@ public enum EstadoDelTanque {
         return DescripcionTanque;
     }
     public static EstadoDelTanque desdeNivel(double porcentaje) {
+        if (porcentaje<0 || porcentaje>100){
+            return INVALIDO;
+        }
         if (porcentaje <= 0)  return VACIO;
         if (porcentaje <= BAJO.porcentajeMinimo)  return BAJO;
-        if (porcentaje <= MEDIO.porcentajeMinimo) return MEDIO;
-        return LLENO;
+        return null;
     }
     
    
