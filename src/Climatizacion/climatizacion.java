@@ -70,8 +70,4 @@ public class climatizacion {
     public velocidadVentilador getVelocidadVentilador() {
         return velocidadVentilador;
     }
-    public String Estado() {
-        return "    VelocidadVentilador: " + velocidadVentilador.name() +
-               " | " + velocidadVentilador.getEstado();
-                }
 }
