@@ -55,4 +55,12 @@ public class Radio {
             Frecuencia -= 0.2;
         }
     }
+    public String Estado() {
+    if (!Encendida) {
+        return "Radio apagada";
+    }
+    return "Modo: " + modoActual.name() +
+           " | Frecuencia: " + (modoActual == Modo.BLUETOOTH ? "E/A" : Frecuencia) +
+           " | Estado: Encendida";
+}
     }
